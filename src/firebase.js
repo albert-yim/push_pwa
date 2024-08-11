@@ -1,5 +1,4 @@
 import { initializeApp } from "firebase/app";
-import { firebaseConfig } from "../config/firebaseConfig";
 import { getMessaging } from "firebase/messaging";
 
 //Firebase Config
