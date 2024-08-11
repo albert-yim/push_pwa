@@ -4,6 +4,14 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "../config/firebaseConfig";
+import { getMessaging } from "firebase/messaging";
+
+//init firebase
+const app = initializeApp(firebaseConfig);
+// Initialize Firebase Cloud Messaging and get a reference to the service
+const messaging = getMessaging(app);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
