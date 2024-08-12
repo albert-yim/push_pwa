@@ -18,15 +18,15 @@ function App() {
 
       if (permission === "granted") {
         console.log("get permission");
-        try {
-          const currentToken = await getToken(messaging, {
-            vapidKey: process.env.REACT_APP_VAPID_KEY,
-          });
-          console.log("currentToken", currentToken);
-          setToken(currentToken);
-        } catch (error) {
-          console.log("Error getting token", error);
-        }
+        console.log("OK test");
+        getToken(messaging, {
+          vapidKey: process.env.REACT_APP_VAPID_KEY,
+        })
+          .then((currentToken) => {
+            console.log(`I got it ${currentToken}`);
+            setToken(currentToken);
+          })
+          .catch((err) => console.log(err));
       } else {
         console.log("denided permission");
       }
@@ -40,10 +40,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <s>
-          support? {isSupported ? "yes" : "no"} token: {token}
-        </s>
         <button onClick={clicked}>Request Permission</button>
+        <s>token: ${token}</s>
       </header>
     </div>
   );
